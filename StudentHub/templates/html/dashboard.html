@@ -1,0 +1,127 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/dashboard.css' %}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-left">
+      <img class="img" src="{% static 'image/images-removebg-preview.png' %}" alt="">
+      <p class="name">Student hub</p>
+    </div>
+    <div class="nav-middle">
+      <ul class="nav-menu">
+        <a href="{% url 'dashboard' %}"><li class="home">home</li></a>
+        <a href="#service"><li class="faculty">our service</li></a>
+        <a href="#faculties"><li class="faculty">faculty</li></a>
+        <li><input class="search" type="search" placeholder="search for item"></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="{% url 'home' %}">
+        <button class="logout">logout</button>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="top">
+      <!-- <p class="greet"><span>welcome</span> stephen</p> -->
+      <p class="welcome">
+        take your <span>academic</span> <br> <span>to higher</span> level by accessing educative <br> <span>materials</span>
+      </p>
+      <p class="desc">
+        Our Student Hub is designed to provide you with all 
+        the tools and materials <br> you need to succeed.
+        Access a vast collection of past exam papers 
+        and their solutions. <br> Prepare effectively for 
+        your upcoming tests and exams by reviewing previous 
+        years' questions
+      </p>
+      <div class="btn">
+        <a href="#faculties">
+          <button class="dive">Go to faculty</button>
+        </a>
+      </div>
+    </section>
+    <section id="service">
+      <p class="our">our service</p>
+      <div class="service">
+        <div class="sevice-div">
+          <img src="{% static 'image/undraw_books_re_8gea.svg' %}" alt="">
+          <p class="txt">past question</p>
+        </div>
+        <div class="sevice-div">
+          <img src="{% static 'image/undraw_summer_1wi4.svg' %}" alt="">
+          <p class="txt">past answers</p>
+        </div>
+        <div class="sevice-div">
+          <img src="{% static 'image/undraw_learning_sketching_nd4f.svg' %}" alt="">
+          <p class="txt">course materials</p>
+        </div>
+        <div class="sevice-div">
+          <img src="{% static 'image/undraw_book_lover_re_rwjy.svg' %}" alt="">
+          <p class="txt">course content</p>
+        </div>
+      </div>
+    </section>
+    <section id="faculties" class="faculties">
+      <p class="facultys">available faculties</p>
+      <div class="faculties-div">
+        {% for faculty in faculties %}
+        <a href="{% url 'department' faculty.id %}">
+          <div class="fac">
+            <div class="image-div">
+              <img src="{{faculty.image.url}}" alt="faculty image">
+            </div>
+            <p class="fac-name">
+              {{faculty.name}}
+            </p>
+          </div>
+        </a>
+        {% endfor %}
+        </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="div1">
+      <div class="foot">
+        <div class="foot-inner-1"> 
+          <img class="logo22" src="{% static 'image/images-removebg-preview.png' %}" alt="logo">
+        </div>
+        <div class="foot-inner2">
+          <h1 class="web-name2">STUDENT HUB</h1>
+        </div>
+      </div>
+      <!-- <p class="fp">
+        At Student Hub, we believe that education is the 
+        cornerstone of personal growth and societal progress. 
+      </p> -->
+    </div>
+    <div class="div2">
+      <h3>about</h3>
+      <p class="pp">About us</p>
+      <p class="pp">more search</p>
+      <p class="pp">event</p>
+    </div>
+    <div>
+      <h3 class="hhh">privacy policy</h3>
+      <p class="pp">Terms and conditions</p>
+      <p class="pp">privacy policy</p>
+      <p class="pp">security</p>
+    </div>
+    </div>
+    <div>
+      <h3 class="hhh">contact us</h3>
+      <a href="tel:2349039672814">
+        <p class="pp">09039672814</p>
+      </a>
+      <p class="pp">horlharmighty2000@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,159 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>home</title>
+  <link rel="stylesheet" href="{% static 'css/home.css' %}">
+</head>
+<body>
+  <nav class="menu" id="menu">
+    <div class="left">
+      <div class="left-inner"> 
+        <img class="logo" src="{% static 'image/images-removebg-preview.png' %}" alt="logo">
+      </div>
+      <div class="left-inner2">
+        <h1 class="web-name">STUDENT HUB</h1>
+      </div>
+    </div>
+
+    <div class="middle">
+      <ul class="nav-menu">
+        <a href="/"><li class="home">home</li></a>
+        <a href="#about-me"><li class="about">about us</li></a>
+        <a href="#contact"><li class="contact">contact us</li></a>
+      </ul>
+    </div>
+
+    <div class="right">
+      <a href="{% url 'login' %}"><button class="login">Login</button></a>
+      <a href="{% url 'signup' %}"><button class="signup">Signup</button></a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="hero">
+      <div class="left-hero">
+        <h1 class="hero-text">
+          strenghthen your <span class="knowledge">academic 
+          knowledge</span> and skill by having access to 
+          different <span class="knowledge">materials</span>
+        </h1>
+        <p class="hero-p">
+          Are you looking for a comprehensive resource 
+          to excel in your academic journey? Look no further! 
+          Our Student Hub is designed to provide you with all 
+          the tools and materials you need to succeed.
+          Access a vast collection of past exam papers 
+          and their solutions. Prepare effectively for 
+          your upcoming tests and exams by reviewing previous 
+          years' questions. Dive into our extensive library 
+        </p>
+        <div class="btn-div">
+          <a href="{% url 'login' %}">
+            <button class="get-started"> Get started</button>
+          </a>
+        </div>
+      </div>
+      <div class="right-hero">
+        <img class="hero-image" src="{% static 'image/gown-removebg-preview.png' %}" alt="hero-image">
+      </div>
+    </section>
+    <section id="about-me">
+      <div class="left-abt">
+        <img class="about-image" src="{% static 'image/gown_4-removebg-preview.png' %}" alt="about-image">
+      </div>
+      <div class="right-abt">
+        <h1 class="abt-h">ABOUT US</h1>
+        <p class="abt-txt">
+          At Student Hub, we believe that education is the 
+          cornerstone of personal growth and societal progress. 
+          The Student Hub is a testament 
+          to our commitment to providing students with the tools 
+          and support they need to excel in their academic pursuits.
+          Integrity, Excellence, and Innovation are the core values 
+          that guide our every action. We uphold the highest ethical 
+          standards, strive for excellence in all we do, and embrace 
+          innovative approaches to education.
+          Our mission is simple yet profound: to empower 
+          students to reach their full potential. We 
+          achieve this by fostering a dynamic learning environment 
+          that encourages curiosity, critical thinking, and a passion 
+          for learning
+        </p>
+        <div class="learn-div">
+          <a href="{% url 'login' %}"><button class="learnmore">learn more</button></a>
+        </div>
+      </div>
+    </section>
+    <section id="contact">
+      <h1 class="contacts">Contact us</h1>
+      <form action="" method="post">
+        {% csrf_token %}
+        <div class="name-div">
+          <div>
+            <label class="label" for="fname">First name</label> <br>
+            <input class="input" type="text" name="firstname" placeholder="Enter your first name"> <br>
+          </div>
+          <div>
+            <label class="label" for="lname">Last name</label> <br>
+            <input class="input" type="text" name="lastname" placeholder="Enter your last name"> <br>
+          </div>
+        </div>
+        <div class="number-div">
+          <div>
+            <label class="label" for="phone">phone number</label> <br>
+            <input class="input" type="tel" name="phone" placeholder="Enter your phone number"> <br>
+          </div>
+          <div>
+            <label class="label" for="email">email address</label> <br>
+            <input class="input" type="email" name="email" placeholder="Enter your email"> <br>
+          </div>
+        </div>
+        <textarea name="message" id="message" cols="30" rows="10"></textarea>
+        <div class="submit-div">
+          <input class="submit" type="submit">
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="div1">
+      <div class="foot">
+        <div class="foot-inner-1"> 
+          <img class="logo22" src="{% static 'image/images-removebg-preview.png' %}" alt="logo">
+        </div>
+        <div class="foot-inner2">
+          <h1 class="web-name2">STUDENT HUB</h1>
+        </div>
+      </div>
+      <!-- <p class="fp">
+        At Student Hub, we believe that education is the 
+        cornerstone of personal growth and societal progress. 
+      </p> -->
+    </div>
+    <div class="div2">
+      <h3>about</h3>
+      <p class="pp">About us</p>
+      <p class="pp">more search</p>
+      <p class="pp">event</p>
+    </div>
+    <div>
+      <h3 class="hhh">privacy policy</h3>
+      <p class="pp">Terms and conditions</p>
+      <p class="pp">privacy policy</p>
+      <p class="pp">security</p>
+    </div>
+    </div>
+    <div>
+      <h3 class="hhh">contact us</h3>
+      <a href="tel:2349039672814">
+        <p class="pp">09039672814</p>
+      </a>
+      <p class="pp">horlharmighty2000@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>

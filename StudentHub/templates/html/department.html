@@ -1,0 +1,100 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="{% static 'css/department.css' %}">
+</head>
+<body>
+  <nav class="nav">
+    <div class="nav-left">
+      <img class="img" src="{% static 'image/images-removebg-preview.png' %}" alt="">
+      <p class="name">Student hub</p>
+    </div>
+    <div class="nav-middle">
+      <ul class="nav-menu">
+        <a href="{% url 'dashboard' %}"><li class="home">home</li></a>
+        <a href="#faculties"><li class="home">Department</li></a>
+        <li><input class="search" type="search" placeholder="search for item"></li>
+      </ul>
+    </div>
+    <div class="nav-right">
+      <a href="{% url 'home' %}">
+        <button class="logout">logout</button>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="top">
+      <!-- <p class="greet"><span>welcome</span> stephen</p> -->
+      <p class="welcome">
+        take your <span>academic</span> <br> <span>to higher</span> level by accessing educative <br> <span>materials</span>
+      </p>
+      <p class="desc">
+        Our Student Hub is designed to provide you with all 
+        the tools and materials <br> you need to succeed.
+        Access a vast collection of past exam papers 
+        and their solutions. <br> Prepare effectively for 
+        your upcoming tests and exams by reviewing previous 
+        years' questions
+      </p>
+    </section>
+    <section id="faculties" class="faculties">
+      <p class="facultys">Available departments</p>
+      <div class="faculties-div">
+        {% for departments in department %}
+        <a href="{% url 'level' departments.id %}">
+          <div class="fac">
+            <div class="image-div">
+              <img src="{{departments.image.url}}" alt="department image">
+            </div>
+            <p class="fac-name">
+              {{departments.name}}
+            </p>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+    </section>
+  </main>
+  <footer class="footer">
+    <div class="div1">
+      <div class="foot">
+        <div class="foot-inner-1"> 
+          <img class="logo22" src="{% static 'image/images-removebg-preview.png' %}" alt="logo">
+        </div>
+        <div class="foot-inner2">
+          <h1 class="web-name2">STUDENT HUB</h1>
+        </div>
+      </div>
+      <!-- <p class="fp">
+        At Student Hub, we believe that education is the 
+        cornerstone of personal growth and societal progress. 
+      </p> -->
+    </div>
+    <div class="div2">
+      <h3>about</h3>
+      <p class="pp">About us</p>
+      <p class="pp">more search</p>
+      <p class="pp">event</p>
+    </div>
+    <div>
+      <h3 class="hhh">privacy policy</h3>
+      <p class="pp">Terms and conditions</p>
+      <p class="pp">privacy policy</p>
+      <p class="pp">security</p>
+    </div>
+    </div>
+    <div>
+      <h3 class="hhh">contact us</h3>
+      <a href="tel:2349039672814">
+        <p class="pp">09039672814</p>
+      </a>
+      <p class="pp">horlharmighty2000@gmail.com</p>
+    </div>
+  </footer>
+</body>
+</html>

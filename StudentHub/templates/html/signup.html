@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+  <main >
+    <div class="background">
+      <img class="image" src="{% static 'image/gown 2.jpeg' %}" alt="image">
+    </div>
+    <div class="form">
+      <h2 class="welcome">welcome <span class="back">user !</span></h2>
+      <p class="details">pls enter your details</p>
+      {% for message in messages %}
+      <div>
+        <p class="message">{{message}}</p>
+      </div>
+      {% endfor %}
+
+      <form action="" method="post">
+        {% csrf_token %} 
+        <label class="input" for="fname"> first name</label> <br>
+        <input id="firstname" type="text" name="firstname" placeholder="Enter your firstname"> <br>
+        <label class="input" for="lname">Last name</label> <br>
+        <input id="lastname" type="text" name="lastname" placeholder="enter your lastname"> <br>
+        <label class="input" for="username">username</label> <br>
+        <input id="username" type="text" name="username" placeholder="Enter your username"> <br>
+        <label class="input" for="password">password</label> <br>
+        <input id="password" type="password" name="password" placeholder="enter your password"> <br>
+        <label class="input" for="password">confirm password</label> <br>
+        <input id="password" type="password" name="cpassword" placeholder="confirm your password"> <br>
+        <label class="input" for="email">email</label> <br>
+        <input id="email" type="email" name="email" placeholder="enter your email"> <br>
+        <button id="submit">sign up</button>
+        <p class="dont">Already have an account, click <a href="{% url 'login' %}">here</a> to login</p>
+      </form>
+    </div>
+  </main>
+</body>
+</html>

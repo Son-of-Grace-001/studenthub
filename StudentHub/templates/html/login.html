@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="{% static 'css/login.css' %}">
+</head>
+<body>
+  <main >
+    <div class="background">
+      <img class="image" src="{% static 'image/gown 2.jpeg' %}" alt="image">
+    </div>
+    <div class="form">
+      <h2 class="welcome">welcome <span class="back">back !</span></h2>
+      <p class="details">pls enter your details</p>
+
+      {% for message in messages %}
+      <div>
+        <p class="message">{{message}}</p>
+      </div>
+      {% endfor %}
+      <form action="" method="post">
+        {% csrf_token %} 
+        <label class="username" for="username"> username</label> <br>
+        <input id="username" type="text" name="username" placeholder="Enter username"> <br>
+        <label class="password" for="password">password</label> <br>
+        <input id="password" type="password" name="password" placeholder="enter your pasword"> <br>
+        <a href="{% url 'reset_password' %}"><p class="p">forget password ?</p></a>
+        <button id="submit">Login</button>
+      <p class="dont">Don't have an account yet, click <a href="{% url 'signup' %}">here</a> to sign up</p>
+      </form>
+    </div>
+  </main>
+</body>
+</html>
